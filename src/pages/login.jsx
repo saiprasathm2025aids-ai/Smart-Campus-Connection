@@ -1,41 +1,42 @@
-
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/project");
+  };
 
-    const navigate = useNavigate()
+  return (
+    <div className="login-container">
+      <h1>Smart Campus Connect</h1>
+      <p>Login to your account</p>
 
-    const handlesubmit = (event) => {
-        event.preventDefault()
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-        console.log(email, password)
+        <input
+          type="password"
+          placeholder="Enter password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-        navigate('/projects')
-    }
-
-    return (
-        <div>
-            <h1>Login Page</h1>
-
-            <form onSubmit={handlesubmit}>
-
-                <input type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)}required/>
-
-                <br /><br />
-
-                <input type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-
-                <br /><br />
-
-                <button type="submit">Login</button>
-
-            </form>
-        </div>
-    )
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
 }
 
-export default Login
+export default Login;

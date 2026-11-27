@@ -28,8 +28,8 @@ function Project() {
         </div>
 
         <div className="card">
-          <h3>Lost & Found</h3>
-          <p>Find lost items</p>
+          <h3>Lost & Found.</h3>
+          <p>Find lost items.</p>
         </div>
       </div>
 
